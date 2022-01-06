@@ -1,27 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
+
+import Navbar from './components/navbar';
+import Footer from './components/footer';
+
+import Contact from './components/mainComponents/contact';
+import Project from './components/mainComponents/projects';
+import Overview from './components/mainComponents/overview';
+import Resume from './components/mainComponents/resume'
+
+import { useSelector } from 'react-redux';
 
 function App() {
 
-    const dispatch = useDispatch();
-    const appNav = useSe
+    const appNav = useSelector(store => store.appNav.value);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar/>
+      <div>
+        {appNav === "overview" && <Overview />}
+        {appNav === "contact" && <Contact />}
+        {appNav === "project" && <Project />}
+        {appNav === "resume" && <Resume />}
+      </div>
+      <Footer/>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-const Contact = () => {
+const NavBar = () => {
     return (
         <div>
             appNav
@@ -6,4 +6,4 @@ const Contact = () => {
     );
 }
 
-export default Contact
+export default NavBar
