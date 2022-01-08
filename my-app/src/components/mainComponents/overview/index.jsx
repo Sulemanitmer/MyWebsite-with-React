@@ -1,9 +1,9 @@
-const Projects = () => {
+const Overview = () => {
     return (
         <div>
-            project
+            overview
         </div>
     );
 }
 
-export default Projects
+export default Overview

@@ -8,7 +8,8 @@ import Footer from './components/footer';
 import Contact from './components/mainComponents/contact';
 import Project from './components/mainComponents/projects';
 import Overview from './components/mainComponents/overview';
-import Resume from './components/mainComponents/resume'
+import Landing from './components/mainComponents/landing';
+import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
 
@@ -20,6 +21,7 @@ function App() {
     <>
       <Navbar/>
       <div>
+        {appNav === "home" && <Landing/>}
         {appNav === "overview" && <Overview />}
         {appNav === "contact" && <Contact />}
         {appNav === "project" && <Project />}
