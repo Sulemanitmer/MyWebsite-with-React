@@ -13,12 +13,17 @@ import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
 
+import FluidAnimation from 'react-fluid-animation'
+
 function App() {
 
     const appNav = useSelector(store => store.appNav.value);
 
   return (
     <>
+      <FluidAnimation
+        style={{ height: '100vh' }}
+      />
       <Navbar/>
       <div>
         {appNav === "home" && <Landing/>}
