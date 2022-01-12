@@ -21,7 +21,9 @@ function App() {
 
   return (
     <>
-     
+      <FluidAnimation
+        style={{ height: '100vh' }}
+      />
       <Navbar/>
       <div>
         {appNav === "home" && <Landing/>}
