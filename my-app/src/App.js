@@ -13,6 +13,7 @@ import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
 
+import { Fluid } from './components/Fluid/Fluid';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <Fluid />
       <Navbar/>
       <div>
         {appNav === "home" && <Landing/>}
@@ -28,7 +30,7 @@ function App() {
         {appNav === "project" && <Project />}
         {appNav === "resume" && <Resume />}
       </div>
-      <Footer/>
+      <Footer/> 
     </>
   );
 }
