@@ -13,7 +13,6 @@ import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
 
-import FluidAnimation from 'react-fluid-animation'
 
 function App() {
 
@@ -21,9 +20,6 @@ function App() {
 
   return (
     <>
-      <FluidAnimation
-        style={{ height: '100vh' }}
-      />
       <Navbar/>
       <div>
         {appNav === "home" && <Landing/>}
