@@ -6,7 +6,10 @@ export const appNavSlice = createSlice({
     name: 'appNav',
 
     initialState:{
-        value:'home',
+        value: {
+            navbarOption:'home',
+            navbarShowModal: false,
+        }
     },
     reducers: {
         updateAppNav:(state, action) => {

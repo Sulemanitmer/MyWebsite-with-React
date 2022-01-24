@@ -12,7 +12,10 @@ const Landing = () => {
             <Col sm={7}>
                 <Row>
                     <Col>
-                        about me
+                    <div style={{ position: 'relative', zIndex: '2' }}>
+                    about me
+                    </div>
+                        
                     </Col>
                 </Row>
                 <Row>

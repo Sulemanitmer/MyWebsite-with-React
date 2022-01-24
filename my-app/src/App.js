@@ -21,14 +21,14 @@ function App() {
 
   return (
     <>
-      <Fluid />
+      {/* <Fluid /> */}
       <Navbar/>
       <div>
-        {appNav === "home" && <Landing/>}
-        {appNav === "overview" && <Overview />}
-        {appNav === "contact" && <Contact />}
-        {appNav === "project" && <Project />}
-        {appNav === "resume" && <Resume />}
+        {appNav.navbarOption === "home" && <Landing/>}
+        {appNav.navbarOption === "overview" && <Overview />}
+        {appNav.navbarOption === "contact" && <Contact />}
+        {appNav.navbarOption === "project" && <Project />}
+        {appNav.navbarOption === "resume" && <Resume />}
       </div>
       <Footer/> 
     </>
