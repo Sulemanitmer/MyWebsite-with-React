@@ -30,7 +30,7 @@ export default function NavBarModal() {
             dialogClassName="custom-modal"
             bsClass="my-modal"
         >
-        <Modal.Header closeButton className='border-0'>
+        <Modal.Header  closeButton className='border-0 p-4'>
           <Modal.Title></Modal.Title>
             </Modal.Header>
                 <Modal.Body>
