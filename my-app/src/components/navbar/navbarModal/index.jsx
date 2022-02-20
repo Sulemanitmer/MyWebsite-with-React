@@ -6,7 +6,9 @@ import { updateAppNav } from "../appNavSlice";
 import { Modal, Button, Row, Col, Container } from "react-bootstrap";
 import { useState } from 'react';
 import _ from 'lodash';
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { AiFillCloseCircle } from "react-icons/ai";
+
+import { Spring, animated } from 'react-spring'
 
 export default function NavBarModal() {
 
@@ -30,37 +32,51 @@ export default function NavBarModal() {
             dialogClassName="custom-modal"
             bsClass="my-modal"
         >
-        <Modal.Header  closeButton className='border-0 p-4'>
-          <Modal.Title></Modal.Title>
+        
+        <Modal.Header  className='border-0 p-4'>
+          <div className='ms-auto' onClick={closeNavbarModal}>
+            <AiFillCloseCircle size={50} />
+          </div>
             </Modal.Header>
                 <Modal.Body>
-                <Row className='pt-4 mt-2'>
+                
+                <Row className='pt-3 mt-1'>
                     <Col>
-                        <a style={{fontSize: "50px"}}>AboutMe </a>
+                        <a style={{fontSize: "54px"}}>AboutMe </a>
                     </Col>
                     <Col className='p-0 pt-2 mt-1'>
                         <a style={{fontSize: "12.5px"}}>(Main)</a>
                     </Col>
                 </Row>
-                <Row className='pt-3'>
+                <Row className='pt-4'>
                     <Col>
-                        <a style={{fontSize: "50px"}}>Portfolio </a> 
+                        <a style={{fontSize: "54px"}}>Portfolio </a> 
                     </Col>
                     <Col className='p-0 pt-2 mt-1'>
                         <a style={{fontSize: "12.5px"}}>(Works)</a>
                     </Col>
                 </Row>
-                <Row className='pt-3'>
+                <Row className='pt-4'>
                     <Col>
-                        <a style={{fontSize: "50px"}}>Services </a> 
+                        <a style={{fontSize: "54px"}}>Services </a> 
                     </Col>
                     <Col className='p-0 pt-2 mt-1'>
                         <a style={{fontSize: "12.5px"}}>(Values)</a>
                     </Col>
                 </Row>
-                <Row className='pt-3'>
+                <Row className='pt-4'>
                     <Col>
-                        <a style={{fontSize: "50px"}}>Contacts </a>
+                        <Spring
+                            config={{ mass: 5, tension: 2000, friction: 200,  duration: 5000  }}
+                            from={{opacity:1, lineHeight: 0}} 
+                            to={{opacity:1, lineHeight: 1}} 
+                        >
+                            {props => (
+                                <animated.div style={props}>
+                                    <a style={{fontSize: "54px", overflow: 'hidden'}}>Contacts </a>
+                                </animated.div>
+                            )}
+                        </Spring>
                     </Col>
                     <Col className='p-0 pt-2 mt-1'>
                         <a style={{fontSize: "12.5px"}}>(Contact Me)</a>

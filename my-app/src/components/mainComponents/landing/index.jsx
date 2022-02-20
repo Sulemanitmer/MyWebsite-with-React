@@ -24,7 +24,7 @@ const Landing = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col className="font-face-ss">
                         Ever since I was a kid, I have been passionate 
                         about computers and how they impact us. 
                         My dad was a Cyber Security Engineer, 

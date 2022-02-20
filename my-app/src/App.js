@@ -12,7 +12,7 @@ import Landing from './components/mainComponents/landing';
 import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
-
+import Text3d from './components/mainComponents/Text3d';
 import { Fluid } from './components/Fluid/Fluid';
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
   return (
     <>
       {/* <Fluid /> */}
+      <Text3d />
       <Navbar/>
       <div>
         {appNav.navbarOption === "home" && <Landing/>}
