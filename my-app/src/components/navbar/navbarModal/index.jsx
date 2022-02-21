@@ -40,48 +40,78 @@ export default function NavBarModal() {
             </Modal.Header>
                 <Modal.Body>
                 
-                <Row className='pt-3 mt-1'>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>AboutMe </a>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Main)</a>
-                    </Col>
-                </Row>
-                <Row className='pt-4'>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>Portfolio </a> 
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Works)</a>
-                    </Col>
-                </Row>
-                <Row className='pt-4'>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>Services </a> 
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Values)</a>
-                    </Col>
-                </Row>
-                <Row className='pt-4'>
-                    <Col>
-                        <Spring
-                            config={{ mass: 5, tension: 2000, friction: 200,  duration: 5000  }}
-                            from={{opacity:1, lineHeight: 0}} 
-                            to={{opacity:1, lineHeight: 1}} 
-                        >
-                            {props => (
-                                <animated.div style={props}>
-                                    <a style={{fontSize: "54px", overflow: 'hidden'}}>Contacts </a>
-                                </animated.div>
-                            )}
-                        </Spring>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
-                    </Col>
-                </Row>
+                <Spring
+                    from={{opacity:1, height:'0px'}} 
+                    to={{opacity:1, height: '100px'}} 
+                >
+                    {props => (
+                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                        <Row style={{marginTop: "30px"}}>
+                            <Col>
+                                <a style={{fontSize: "54px"}}>AboutMe </a>
+                            </Col>
+                            <Col className='p-0 pt-2 mt-1'>
+                                <a style={{fontSize: "12.5px"}}>(Main)</a>
+                            </Col>
+                        </Row>
+                        </animated.div>
+                    )}
+                </Spring>
+                <Spring
+                    config={{ duration: 5000 }}
+                    from={{opacity:1, height:'100px'}} 
+                    to={{opacity:1, height: '200px'}} 
+                >
+                    {props => (
+                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                            <Row style={{marginTop: "130px"}}>
+                                <Col>
+                                    <a style={{fontSize: "54px"}}>Portfolio </a>
+                                </Col>
+                                <Col className='p-0 pt-2 mt-1'>
+                                    <a style={{fontSize: "12.5px"}}>(Works</a>
+                                </Col>
+                            </Row>
+                        </animated.div>
+                    )}
+                </Spring>
+                <Spring
+                    config={{ duration: 5000 }}
+                    from={{opacity:1, height:'200px'}} 
+                    to={{opacity:1, height: '300px'}} 
+                >
+                    {props => (
+                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                            <Row style={{marginTop: "230px"}}>
+                                <Col>
+                                    <a style={{fontSize: "54px"}}>Services </a>
+                                </Col>
+                                <Col className='p-0 pt-2 mt-1'>
+                                    <a style={{fontSize: "12.5px"}}>(Values)</a>
+                                </Col>
+                            </Row>
+                        </animated.div>
+                    )}
+                </Spring>
+                <Spring
+                    config={{ duration: 5000 }}
+                    from={{opacity:1, height:'300px'}} 
+                    to={{opacity:1, height: '400px'}} 
+                >
+                    {props => (
+                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                            <Row style={{marginTop: "330px"}}>
+                                <Col>
+                                    <a style={{fontSize: "54px"}}>Contacts </a>
+                                </Col>
+                                <Col className='p-0 pt-2 mt-1'>
+                                    <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
+                                </Col>
+                            </Row>
+                        </animated.div>
+                    )}
+                </Spring>
+                   
             </Modal.Body>
             <Modal.Footer className='d-inline justify-content-center pb-4 mb-4 border-0'>
                 <Row>
