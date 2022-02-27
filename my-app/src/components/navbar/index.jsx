@@ -39,7 +39,8 @@ export default function NavBar() {
           </Row>
         </Container>
 
-        <NavbarModal/>
+        {navbarAppItem.navbarShowModal === true && <NavbarModal/>}
+        
 
       </>
      

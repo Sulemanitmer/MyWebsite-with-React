@@ -40,6 +40,15 @@ body{
   font-family: 'Roboto', sans-serif !important;
 }
 
+.fadeIn{
+  animation-name: modalFadeIn;
+  animation-duration: 1s;
+}
+.fadeOut {
+  animation-name: modalFadeOut;
+  animation-duration: 1s;
+}
+
 .my-modal-lg {
     width: auto;
 }
@@ -58,7 +67,12 @@ body{
     border-radius: 0;
 }
 
-.trailsText > div {
-  padding-right: 0.05em;
-  overflow: hidden;
+
+@keyframes modalFadeIn {
+  from {transform: translateY(-100%);opacity: 1;}
+  to {transform: translateY(0);opacity: 1;}
+}
+@keyframes modalFadeOut {
+  from {transform: translateY(0);opacity: 1;}
+  to {transform: translateY(-100%);opacity: 0;}
 }
