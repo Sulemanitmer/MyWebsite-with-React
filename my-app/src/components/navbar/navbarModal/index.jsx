@@ -9,13 +9,15 @@ import _ from 'lodash';
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import { Spring, animated } from 'react-spring'
+import { motion } from 'framer-motion';
+import "../../../App.css"
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-export default function NavBarModal() {
+export default function NavBarModal(props) {
 
     const dispatch = useDispatch();
 
     const navbarAppItem = useSelector(store => store.appNav.value);
-    const [fullscreen] = useState(true);
 
     const closeNavbarModal = () => {
         const navbarApp = _.cloneDeep(navbarAppItem);
@@ -23,24 +25,99 @@ export default function NavBarModal() {
         dispatch(updateAppNav(navbarApp));
     }
 
-    const fadeType = navbarAppItem.navbarShowModal ? 'fadeIn' : 'fadeOut';
+    const [count, setCount] = useState(true);
     return (
     <>
-                <Spring
-                    delay={200}
-                    config={{ duration: 1000 }}
-                    from={{opacity:0}} 
-                    to={{opacity:0}} 
-                >
-                    {props => (
-                        <animated.div style={props} className="" >
-                        <Modal 
-            fullscreen={fullscreen}
-            show={navbarAppItem.navbarShowModal}
+    
+    <motion.div 
+    initial={{
+        y: "-100vh"
+       
+    }}
+    animate={{
+        y: 0,
+        transition:{
+            duration: 1.25
+        }
+    }}
+    className="modal-content-wrapper">
+        <div className="modal-content"> 
+            <div className="modal-header ms-auto border-0">
+                <AiFillCloseCircle size={50} />
+            </div>
+            <div className="modal-body">
+                <Row style={{marginTop: "30px"}}>
+                    <Col>
+                        <a style={{fontSize: "54px"}}>AboutMe </a>
+                    </Col>
+                    <Col className='p-0 pt-2 mt-1'>
+                        <a style={{fontSize: "12.5px"}}>(Main)</a>
+                    </Col>
+                </Row>
+                <Row style={{marginTop: "30px"}}>
+                    <Col>
+                        <a style={{fontSize: "54px"}}>Portfolio</a>
+                    </Col>
+                    <Col className='p-0 pt-2 mt-1'>
+                        <a style={{fontSize: "12.5px"}}>(Achievement)</a>
+                    </Col>
+                </Row>
+                <Row style={{marginTop: "30px"}}>
+                    <Col>
+                        <a style={{fontSize: "54px"}}>Services </a>
+                    </Col>
+                    <Col className='p-0 pt-2 mt-1'>
+                        <a style={{fontSize: "12.5px"}}>(Main)</a>
+                    </Col>
+                </Row>
+                <Row style={{marginTop: "30px"}}>
+                    <Col>
+                        <a style={{fontSize: "54px"}}>Contacts </a>
+                    </Col>
+                    <Col className='p-0 pt-2 mt-1'>
+                        <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
+                    </Col>
+                </Row>
+            </div>
+            <div className="modal-footer border-0">
+                <Row>
+                    <Col>
+                        <div>
+                            GitHub
+                        </div>
+                        <div>
+                            Linkedin
+                        </div>
+                        <div>
+                            214-680-7493
+                        </div>
+                    </Col>
+                                
+                    <Col>
+                        <div>
+                            Business inquiries
+                        </div>
+                        <div>
+                            SulemanItmer@gmail.com
+                        </div>
+                        <div>
+                            Work Smart not hard
+                        </div>
+                    </Col>
+                </Row>
+            </div>
+        </div>
+    </motion.div>
+    
+        {/* <Modal 
+            closeTimeoutMS={500}
+            fullscreen={true}
+            show={count}
+            className={ count ? 'fadeIn' : 'fadeOut'}
         >
         
         <Modal.Header  className='border-0 p-4'>
-          <div className='ms-auto' onClick={closeNavbarModal}>
+          <div className='ms-auto' onClick={() => setCount(!count)}>
             <AiFillCloseCircle size={50} />
           </div>
             </Modal.Header>
@@ -163,11 +240,7 @@ export default function NavBarModal() {
                 </Spring>
                 
             </Modal.Footer>
-      </Modal>
-                        </animated.div>
-                    )}
-                </Spring>
-       
+      </Modal> */}
     </>
     )
 }

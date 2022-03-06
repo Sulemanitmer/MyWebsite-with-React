@@ -14,7 +14,7 @@ import Resume from './components/mainComponents/resume';
 import { useSelector } from 'react-redux';
 import Text3d from './components/mainComponents/Text3d';
 import { Fluid } from './components/Fluid/Fluid';
-
+import NavbarModal from "./components/navbar/navbarModal/index";
 function App() {
 
     const appNav = useSelector(store => store.appNav.value);
@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       {/* <Fluid /> */}
-      <Text3d />
+      {/* <Text3d />
       <Navbar/>
       <div>
         {appNav.navbarOption === "home" && <Landing/>}
@@ -31,7 +31,8 @@ function App() {
         {appNav.navbarOption === "project" && <Project />}
         {appNav.navbarOption === "resume" && <Resume />}
       </div>
-      <Footer/> 
+      <Footer/>  */}
+      <NavbarModal/>
     </>
   );
 }
