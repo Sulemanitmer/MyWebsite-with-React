@@ -8,8 +8,7 @@ import { useState } from 'react';
 import _ from 'lodash';
 import { AiFillCloseCircle } from "react-icons/ai";
 
-import { Spring, animated } from 'react-spring'
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import "../../../App.css"
 import { propTypes } from 'react-bootstrap/esm/Image';
 
@@ -20,155 +19,142 @@ export default function NavBarModal(props) {
     const navbarAppItem = useSelector(store => store.appNav.value);
 
     const closeNavbarModal = () => {
-        const navbarApp = _.cloneDeep(navbarAppItem);
+        setTimeout(function () {
+            const navbarApp = _.cloneDeep(navbarAppItem);
         navbarApp.navbarShowModal = false;
         dispatch(updateAppNav(navbarApp));
+        }, 2000);
+       
     }
 
-    const [count, setCount] = useState(true);
+    const [open, setOpen] = useState(true)
     return (
-    <>
-    
-    <motion.div 
-    initial={{
-        y: "-100vh"
-       
-    }}
-    animate={{
-        y: 0,
-        transition:{
-            duration: 1.25
-        }
-    }}
-    className="modal-content-wrapper">
-        <div className="modal-content"> 
-            <div className="modal-header ms-auto border-0">
-                <AiFillCloseCircle size={50} />
-            </div>
-            <div className="modal-body">
-                <Row style={{marginTop: "30px"}}>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>AboutMe </a>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Main)</a>
-                    </Col>
-                </Row>
-                <Row style={{marginTop: "30px"}}>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>Portfolio</a>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Achievement)</a>
-                    </Col>
-                </Row>
-                <Row style={{marginTop: "30px"}}>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>Services </a>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Main)</a>
-                    </Col>
-                </Row>
-                <Row style={{marginTop: "30px"}}>
-                    <Col>
-                        <a style={{fontSize: "54px"}}>Contacts </a>
-                    </Col>
-                    <Col className='p-0 pt-2 mt-1'>
-                        <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
-                    </Col>
-                </Row>
-            </div>
-            <div className="modal-footer border-0">
-                <Row>
-                    <Col>
-                        <div>
-                            GitHub
-                        </div>
-                        <div>
-                            Linkedin
-                        </div>
-                        <div>
-                            214-680-7493
-                        </div>
-                    </Col>
-                                
-                    <Col>
-                        <div>
-                            Business inquiries
-                        </div>
-                        <div>
-                            SulemanItmer@gmail.com
-                        </div>
-                        <div>
-                            Work Smart not hard
-                        </div>
-                    </Col>
-                </Row>
-            </div>
-        </div>
-    </motion.div>
-    
-        {/* <Modal 
-            closeTimeoutMS={500}
-            fullscreen={true}
-            show={count}
-            className={ count ? 'fadeIn' : 'fadeOut'}
-        >
-        
-        <Modal.Header  className='border-0 p-4'>
-          <div className='ms-auto' onClick={() => setCount(!count)}>
-            <AiFillCloseCircle size={50} />
-          </div>
-            </Modal.Header>
-                <Modal.Body>
-                
-                <Spring
-                    delay={200}
-                    config={{ duration: 1000 }}
-                    from={{opacity:1, height:'0px' , x : -20}} 
-                    to={{opacity:1, height: '100px' , x : 0}} 
-                >
-                    {props => (
-                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
-                        <Row style={{marginTop: "30px"}}>
-                            <Col>
-                                <a style={{fontSize: "54px"}}>AboutMe </a>
-                            </Col>
-                            <Col className='p-0 pt-2 mt-1'>
-                                <a style={{fontSize: "12.5px"}}>(Main)</a>
-                            </Col>
-                        </Row>
-                        </animated.div>
-                    )}
-                </Spring>
-                <Spring
-                    delay={300}
-                    config={{ duration: 1000 }}
-                    from={{opacity:1, height:'100px' , x : -20}} 
-                    to={{opacity:1, height: '200px', x : 0}} 
-                >
-                    {props => (
-                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+    <AnimatePresence>
+        {open && (
+            <>
+                <motion.div 
+                initial={{
+                    y: "-100vh"
+                }}
+                animate={{
+                    y: 0,
+                    transition:{
+                        duration: 1
+                    }
+                }}
+                exit={{
+                    y: "-100vh",
+                    transition:{
+                        delay: 0.75,
+                        duration: 1
+                    }
+                }}
+                className="modal-content-wrapper border-0 w-100 h-100 bg-black position-fixed"
+                style={{zIndex: '9' }}>
+                    <div className="modal-content w-100 h-100 bg-black"> 
+                        <motion.div 
+                        initial={{
+                            opacity: 0
+                        }}
+                        animate={{
+                            opacity: 1,
+                            transition:{
+                                delay: 1,
+                            }
+                        }}
+                        exit={{
+                            opacity: 0,
+                            transition:{
+                                delay:0.5
+                            }
+                        }}
+                        onClick={() => { setOpen(false); closeNavbarModal();}}
+                        className="modal-header ms-auto border-0 text-white"
+                        >
+                            <AiFillCloseCircle size={50}/>
+                        </motion.div>
+                        <div className="modal-body text-white">
+                            <motion.div
+                            initial={{
+                                x: -20,
+                                height: "0px"
+                            }}
+                            animate={{
+                                x: 0,
+                                height: "100px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            exit={{
+                                x: -20,
+                                height: "0px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            className="overflow-hidden position-fixed w-100"
+                            >
+                                <Row style={{marginTop: "30px"}}>
+                                    <Col>
+                                        <a style={{fontSize: "54px"}}>AboutMe </a>
+                                    </Col>
+                                    <Col className='p-0 pt-2 mt-1'>
+                                        <a style={{fontSize: "12.5px"}}>(Main)</a>
+                                    </Col>
+                                </Row>
+                            </motion.div>
+                            <motion.div
+                            initial={{
+                                x: -20,
+                                height: "75px"
+                            }}
+                            animate={{
+                                x: 0,
+                                height: "200px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            exit={{
+                                x: -20,
+                                height: "75px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            className="overflow-hidden position-fixed w-100"
+                            >
                             <Row style={{marginTop: "130px"}}>
                                 <Col>
-                                    <a style={{fontSize: "54px"}}>Portfolio </a>
+                                    <a style={{fontSize: "54px"}}>Portfolio</a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px"}}>(Works</a>
+                                    <a style={{fontSize: "12.5px"}}>(Achievement)</a>
                                 </Col>
                             </Row>
-                        </animated.div>
-                    )}
-                </Spring>
-                <Spring
-                    delay={400}
-                    config={{ duration: 1000 }}
-                    from={{opacity:1, height:'200px', x : -20}} 
-                    to={{opacity:1, height: '300px', x : 0}} 
-                >
-                    {props => (
-                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                            </motion.div>
+                            <motion.div
+                            initial={{
+                                x: -20,
+                                height: "175px"
+                            }}
+                            animate={{
+                                x: 0,
+                                height: "300px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            exit={{
+                                x: -20,
+                                height: "175px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            className="overflow-hidden position-fixed w-100"
+                            >
                             <Row style={{marginTop: "230px"}}>
                                 <Col>
                                     <a style={{fontSize: "54px"}}>Services </a>
@@ -177,17 +163,28 @@ export default function NavBarModal(props) {
                                     <a style={{fontSize: "12.5px"}}>(Values)</a>
                                 </Col>
                             </Row>
-                        </animated.div>
-                    )}
-                </Spring>
-                <Spring
-                    delay={500}
-                    config={{ duration: 1000 }}
-                    from={{opacity:1, height:'300px', x : -20}} 
-                    to={{opacity:1, height: '400px', x : 0}} 
-                >
-                    {props => (
-                        <animated.div style={props} className="overflow-hidden position-fixed w-100">
+                            </motion.div>
+                            <motion.div
+                            initial={{
+                                x: -20,
+                                height: "275px"
+                            }}
+                            animate={{
+                                x: 0,
+                                height: "400px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            exit={{
+                                x: -20,
+                                height: "275px",
+                                transition:{
+                                    duration: 1.5
+                                }
+                            }}
+                            className="overflow-hidden position-fixed w-100"
+                            >
                             <Row style={{marginTop: "330px"}}>
                                 <Col>
                                     <a style={{fontSize: "54px"}}>Contacts </a>
@@ -196,20 +193,24 @@ export default function NavBarModal(props) {
                                     <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
                                 </Col>
                             </Row>
-                        </animated.div>
-                    )}
-                </Spring>
-                   
-            </Modal.Body>
-            <Modal.Footer className='d-inline justify-content-center pb-4 mb-4 border-0'>
-            <Spring
-                    delay={1000}
-                    config={{ duration: 1500 }}
-                    from={{opacity:0}} 
-                    to={{opacity:1}} 
-                >
-                    {props => (
-                        <animated.div style={props}>
+                            </motion.div>
+                        </div>
+                        <motion.div 
+                        initial={{
+                            opacity: 0
+                        }}
+                        animate={{
+                            opacity: 1,
+                            transition:{
+                                delay: 1,
+                                duration: 1.5
+                            }
+                        }}
+                        exit={{
+                            opacity: 0
+                        }}
+                        className="modal-footer border-0 text-white"
+                        >
                             <Row>
                                 <Col>
                                     <div>
@@ -222,25 +223,24 @@ export default function NavBarModal(props) {
                                         214-680-7493
                                     </div>
                                 </Col>
-                                
+                                            
                                 <Col>
                                     <div>
                                         Business inquiries
                                     </div>
                                     <div>
-                                        sulemanitmer@gmail.com
+                                        SulemanItmer@gmail.com
                                     </div>
                                     <div>
                                         Work Smart not hard
                                     </div>
                                 </Col>
                             </Row>
-                        </animated.div>
-                    )}
-                </Spring>
-                
-            </Modal.Footer>
-      </Modal> */}
-    </>
+                        </motion.div>
+                    </div>
+                </motion.div>
+            </>
+        )}
+    </AnimatePresence>
     )
 }
