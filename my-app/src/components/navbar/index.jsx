@@ -24,6 +24,7 @@ export default function NavBar() {
 
     return (
       <>
+        {navbarAppItem.navbarShowModal === true && <NavbarModal/>}
          <Container className="p-4">
           <Row className="m-0">
             <Col className="p-0 m-0 my-auto">
@@ -38,10 +39,6 @@ export default function NavBar() {
             </Col>
           </Row>
         </Container>
-
-        {navbarAppItem.navbarShowModal === true && <NavbarModal/>}
-        
-
       </>
      
     );
