@@ -11,11 +11,15 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import { Fluid } from './components/Fluid/Fluid';
+
 // console.log(store.getState())
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <Provider store={store}>
+      <Fluid/>
       <App/>
     </Provider>
   </React.StrictMode>,

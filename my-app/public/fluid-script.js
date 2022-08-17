@@ -917,11 +917,13 @@ canvas.addEventListener('mousedown', function (e) {
 });
 
 canvas.addEventListener('mousemove', function (e) {
-    let pointer = pointers[0];
-    if (pointer.down) { return; }
-    let posX = scaleByPixelRatio(e.offsetX);
-    let posY = scaleByPixelRatio(e.offsetY);
-    updatePointerMoveData(pointer, posX, posY);
+    setTimeout(function()
+    {  
+        let pointer = pointers[0];
+        let posX = scaleByPixelRatio(e.offsetX);
+        let posY = scaleByPixelRatio(e.offsetY);
+        updatePointerMoveData(pointer, posX, posY);
+    }, 100);
 });
 
 window.addEventListener('mouseup', function () {
