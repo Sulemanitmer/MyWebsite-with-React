@@ -12,27 +12,26 @@ import Landing from './components/mainComponents/landing';
 import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
-
-import FluidAnimation from 'react-fluid-animation'
-
+import Text3d from './components/mainComponents/Text3d';
+import { Fluid } from './components/Fluid/Fluid';
 function App() {
 
     const appNav = useSelector(store => store.appNav.value);
 
   return (
     <>
-      <FluidAnimation
-        style={{ height: '100vh' }}
-      />
+      {/* <Fluid /> */}
+      
       <Navbar/>
-      <div>
-        {appNav === "home" && <Landing/>}
-        {appNav === "overview" && <Overview />}
-        {appNav === "contact" && <Contact />}
-        {appNav === "project" && <Project />}
-        {appNav === "resume" && <Resume />}
+      {/* <div>
+        {appNav.navbarOption === "home" && <Landing/>}
+        {appNav.navbarOption === "overview" && <Overview />}
+        {appNav.navbarOption === "contact" && <Contact />}
+        {appNav.navbarOption === "project" && <Project />}
+        {appNav.navbarOption === "resume" && <Resume />}
       </div>
-      <Footer/>
+      <Footer/>  */}
+      {/* <Text3d /> */}
     </>
   );
 }

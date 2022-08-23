@@ -2,11 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 
-export const appNavSlice = createSlice({
+export const AppNavSlice = createSlice({
     name: 'appNav',
 
     initialState:{
-        value:'home',
+        value: {
+            navbarOption:'home',
+            navbarShowModal: false,
+        }
     },
     reducers: {
         updateAppNav:(state, action) => {
@@ -16,6 +19,6 @@ export const appNavSlice = createSlice({
     }
 });
 
-export const {updateAppNav} = appNavSlice.actions;
+export const {updateAppNav} = AppNavSlice.actions;
 
-export default appNavSlice.reducer;
+export default AppNavSlice.reducer;

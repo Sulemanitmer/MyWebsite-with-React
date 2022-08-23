@@ -9,13 +9,17 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import { Fluid } from './components/Fluid/Fluid';
+
+// console.log(store.getState())
+
 ReactDOM.render(
+  
   <React.StrictMode>
-    <Provider store={store} >
+    <Provider store={store}>
+      <Fluid/>
       <App/>
     </Provider>
   </React.StrictMode>,
