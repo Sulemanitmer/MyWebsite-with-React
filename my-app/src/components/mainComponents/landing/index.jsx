@@ -1,11 +1,19 @@
 import { Col, Row, Button } from "react-bootstrap";
 import MyAchievements from "./myAchievements/index";
 import ProjectInProcess from "./projectInProcess/index";
+import ThreeLogo from "./HomePageLogo/index";
 
 const Landing = () => {
     return (
-    <>
-        <Row>
+    <>  
+        {/* <div className="text-pop-up text align-items-center text-center bg-transparent" style={{height:"10vh", display: "grid", zIndex: "100", position: "relative"}}>
+            S0/0
+        </div> */}
+        <div style={{height:"100vh", width: "100vw",  pointerEvents: "none" }}>
+        
+        <ThreeLogo/>
+        </div>
+        {/* <Row>
             <Col sm={4}>
                 My picture
             </Col>
@@ -106,7 +114,7 @@ const Landing = () => {
                     Contact ME
                 </Button>
             </Col>
-        </Row>
+        </Row> */}
     </>
     );
 }

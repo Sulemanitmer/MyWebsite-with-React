@@ -7,7 +7,7 @@ export interface FluidProps {
     style?: CSSProperties;
 }
 
-export const Fluid: FC<FluidProps> = ({ className, style }) => {
+export const Fluid: FC = () => {
 
     useEffect(() => {
         const script = document.createElement("script");
@@ -21,12 +21,6 @@ export const Fluid: FC<FluidProps> = ({ className, style }) => {
     }, [])
     return (
         <canvas
-            className={className ? className : "fluid-canvas"}
-            style={style ? style : {
-                color: 'white',
-                height: '100%',
-                width: '100%',
-                margin: 0
-            }}></canvas>
+            className="fluid-canvas"></canvas>
     );
 }

@@ -12,7 +12,6 @@ import Landing from './components/mainComponents/landing';
 import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
-import Text3d from './components/mainComponents/Text3d';
 import { Fluid } from './components/Fluid/Fluid';
 function App() {
 
@@ -20,18 +19,14 @@ function App() {
 
   return (
     <>
-      {/* <Fluid /> */}
-      
       <Navbar/>
-      {/* <div>
+      <div>
         {appNav.navbarOption === "home" && <Landing/>}
         {appNav.navbarOption === "overview" && <Overview />}
         {appNav.navbarOption === "contact" && <Contact />}
         {appNav.navbarOption === "project" && <Project />}
         {appNav.navbarOption === "resume" && <Resume />}
       </div>
-      <Footer/>  */}
-      {/* <Text3d /> */}
     </>
   );
 }

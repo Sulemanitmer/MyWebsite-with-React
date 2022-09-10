@@ -229,7 +229,6 @@ function textureToCanvas (texture, width, height) {
     let imageData = ctx.createImageData(width, height);
     imageData.data.set(texture);
     ctx.putImageData(imageData, 0, 0);
-
     return captureCanvas;
 }
 
@@ -759,7 +758,7 @@ function render (target) {
 }
 
 function drawColor (fbo, color) {
-    colorProgram.bind();
+    clearProgram.bind()
     gl.uniform4f(colorProgram.uniforms.color, color.r, color.g, color.b, 1);
     blit(fbo);
 }
@@ -1048,7 +1047,7 @@ function normalizeColor (input) {
     let output = {
         r: input.r / 0,
         g: input.g / 0,
-        b: input.b / 0
+        b: input.b / 0,
     };
     return output;
 }
