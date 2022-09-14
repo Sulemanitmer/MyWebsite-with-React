@@ -1,13 +1,9 @@
-import React from 'react'
-import appNavSlice from '../appNavSlice';
-
 import { useDispatch, useSelector } from "react-redux";
 import { updateAppNav, setNavbarShowModal } from "../appNavSlice";
 import { Row, Col } from "react-bootstrap";
 import { useState } from 'react';
 import _ from 'lodash';
-import { AiFillCloseCircle } from "react-icons/ai";
-
+import { AiFillDownCircle } from "react-icons/ai";
 import { motion, AnimatePresence } from 'framer-motion';
 import "../../../App.css"
 
@@ -32,7 +28,8 @@ export default function NavBarModal(props) {
     }
 
     const [open, setOpen] = useState(true)
-    const [textColor, setTextColor] = useState(navbarAppItem )
+    const [textColor] = useState(navbarAppItem )
+
     return (
     <AnimatePresence>
         {open && (
@@ -59,7 +56,8 @@ export default function NavBarModal(props) {
                     <div className="modal-content w-100 h-100 bg-black"> 
                         <motion.div 
                         initial={{
-                            opacity: 0
+                            opacity: 0,
+                            transform: 'rotate(180deg)'
                         }}
                         animate={{
                             opacity: 1,
@@ -69,6 +67,7 @@ export default function NavBarModal(props) {
                         }}
                         exit={{
                             opacity: 0,
+                            transform: 'rotate(0deg)',
                             transition:{
                                 delay:0.5
                             }
@@ -76,7 +75,7 @@ export default function NavBarModal(props) {
                         onClick={() => {closeNavbarModal();}}
                         className="modal-header ms-auto border-0 text-white"
                         >
-                            <AiFillCloseCircle size={50}/>
+                            <AiFillDownCircle size={50}/>
                         </motion.div>
                         <div className="modal-body text-white">
                             <motion.div
