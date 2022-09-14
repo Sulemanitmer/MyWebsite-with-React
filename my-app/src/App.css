@@ -2,7 +2,8 @@ body{
   font-family: 'Roboto', sans-serif !important;
 }
 
-.text-pop-up{
+/* Cool CSS effect for text poping up in 3d  */
+/* .text-pop-up{
   font-size: 500px;
   color: white;
   font-weight: 800;
@@ -50,4 +51,4 @@ body{
     0 50px 30px rgba(0,0,0,0.3);
     color: white;
   }
-}
+} */

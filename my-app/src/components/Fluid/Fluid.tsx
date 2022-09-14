@@ -1,15 +1,12 @@
-import React, { useEffect, FC, CSSProperties } from 'react'
+import React, { useEffect, FC} from 'react'
 
 import './Fluid.css';
-
-export interface FluidProps {
-    className?: string;
-    style?: CSSProperties;
-}
 
 export const Fluid: FC = () => {
 
     useEffect(() => {
+        setTimeout(function()
+        {  
         const script = document.createElement("script");
         script.src = "./fluid-script.js";
         script.async = true;
@@ -18,6 +15,7 @@ export const Fluid: FC = () => {
         return () => {
             document.body.removeChild(script);
         }
+    }, 1000);
     }, [])
     return (
         <canvas

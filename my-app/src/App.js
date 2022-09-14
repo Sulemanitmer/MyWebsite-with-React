@@ -6,13 +6,12 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 
 import Contact from './components/mainComponents/contact';
-import Project from './components/mainComponents/projects';
-import Overview from './components/mainComponents/overview';
+import Projects from './components/mainComponents/projects';
 import Landing from './components/mainComponents/landing';
 import Resume from './components/mainComponents/resume';
 
 import { useSelector } from 'react-redux';
-import { Fluid } from './components/Fluid/Fluid';
+
 function App() {
 
     const appNav = useSelector(store => store.appNav.value);
@@ -21,11 +20,10 @@ function App() {
     <>
       <Navbar/>
       <div>
-        {appNav.navbarOption === "home" && <Landing/>}
-        {appNav.navbarOption === "overview" && <Overview />}
-        {appNav.navbarOption === "contact" && <Contact />}
-        {appNav.navbarOption === "project" && <Project />}
-        {appNav.navbarOption === "resume" && <Resume />}
+        {appNav === "home" && <Landing/>}
+        {appNav === "contact" && <Contact />}
+        {appNav === "projects" && <Projects />}
+        {appNav === "resume" && <Resume />}
       </div>
     </>
   );

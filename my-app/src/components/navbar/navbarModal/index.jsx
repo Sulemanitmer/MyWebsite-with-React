@@ -2,15 +2,14 @@ import React from 'react'
 import appNavSlice from '../appNavSlice';
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateAppNav } from "../appNavSlice";
-import { Modal, Button, Row, Col, Container } from "react-bootstrap";
+import { updateAppNav, setNavbarShowModal } from "../appNavSlice";
+import { Row, Col } from "react-bootstrap";
 import { useState } from 'react';
 import _ from 'lodash';
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import { motion, AnimatePresence } from 'framer-motion';
 import "../../../App.css"
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 export default function NavBarModal(props) {
 
@@ -19,12 +18,16 @@ export default function NavBarModal(props) {
     const navbarAppItem = useSelector(store => store.appNav.value);
 
     const closeNavbarModal = () => {
+        setOpen(false); 
         setTimeout(function () {
-            const navbarApp = _.cloneDeep(navbarAppItem);
-        navbarApp.navbarShowModal = false;
-        dispatch(updateAppNav(navbarApp));
+            dispatch(setNavbarShowModal(false));
         }, 2000);
-       
+    }
+
+    const navbarSelection = (navbarItem) => (event) => {
+        setOpen(false);
+        dispatch(updateAppNav(navbarItem));
+        closeNavbarModal();
     }
 
     const [open, setOpen] = useState(true)
@@ -68,7 +71,7 @@ export default function NavBarModal(props) {
                                 delay:0.5
                             }
                         }}
-                        onClick={() => { setOpen(false); closeNavbarModal();}}
+                        onClick={() => {closeNavbarModal();}}
                         className="modal-header ms-auto border-0 text-white"
                         >
                             <AiFillCloseCircle size={50}/>
@@ -94,13 +97,14 @@ export default function NavBarModal(props) {
                                 }
                             }}
                             className="overflow-hidden position-fixed w-100"
+                            style={{zIndex: "5"}}
                             >
                                 <Row style={{marginTop: "30px"}}>
                                     <Col>
-                                        <a style={{fontSize: "54px"}}>AboutMe </a>
+                                        <a style={{fontSize: "54px", color: navbarAppItem === 'home' ? '#4081c2': 'white'}} onClick={navbarSelection("home")}>AboutMe </a>
                                     </Col>
                                     <Col className='p-0 pt-2 mt-1'>
-                                        <a style={{fontSize: "12.5px"}}>(Main)</a>
+                                        <a style={{fontSize: "12.5px", color: navbarAppItem === 'home' ? '#4081c2': 'white'}} onClick={navbarSelection("home")}>(Main)</a>
                                     </Col>
                                 </Row>
                             </motion.div>
@@ -124,13 +128,14 @@ export default function NavBarModal(props) {
                                 }
                             }}
                             className="overflow-hidden position-fixed w-100"
+                            style={{zIndex: "4"}}
                             >
-                            <Row style={{marginTop: "130px"}}>
+                            <Row style={{marginTop: "130px"}} >
                                 <Col>
-                                    <a style={{fontSize: "54px"}}>Portfolio</a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'projects' ? '#4081c2': 'white'}} onClick={navbarSelection("projects")}>Portfolio</a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px"}}>(Achievement)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'projects' ? '#4081c2': 'white'}} onClick={navbarSelection("projects")}>(Achievement)</a>
                                 </Col>
                             </Row>
                             </motion.div>
@@ -154,13 +159,14 @@ export default function NavBarModal(props) {
                                 }
                             }}
                             className="overflow-hidden position-fixed w-100"
+                            style={{zIndex: "3"}}
                             >
                             <Row style={{marginTop: "230px"}}>
                                 <Col>
-                                    <a style={{fontSize: "54px"}}>Services </a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'resume' ? '#4081c2': 'white'}} onClick={navbarSelection("resume")}>Services </a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px"}}>(Values)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'resume' ? '#4081c2': 'white'}} onClick={navbarSelection("resume")}>(Values)</a>
                                 </Col>
                             </Row>
                             </motion.div>
@@ -184,13 +190,14 @@ export default function NavBarModal(props) {
                                 }
                             }}
                             className="overflow-hidden position-fixed w-100"
+                            style={{zIndex: "2"}}
                             >
                             <Row style={{marginTop: "330px"}}>
                                 <Col>
-                                    <a style={{fontSize: "54px"}}>Contacts </a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'contact' ? '#4081c2': 'white'}} onClick={navbarSelection("contact")}>Contacts </a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px"}}>(Contact Me)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'contact' ? '#4081c2': 'white'}} onClick={navbarSelection("contact")}>(Contact Me)</a>
                                 </Col>
                             </Row>
                             </motion.div>

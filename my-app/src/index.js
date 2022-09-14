@@ -19,6 +19,7 @@ ReactDOM.render(
   
   <React.StrictMode>
     <Provider store={store}>
+      {/* fluid needs to run before the app. In the app it crashes  */}
       <Fluid/>
       <App/>
     </Provider>

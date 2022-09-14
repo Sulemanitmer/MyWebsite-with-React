@@ -914,17 +914,17 @@ canvas.addEventListener('mousedown', function (e) {
         { pointer = new pointerPrototype(); }
     updatePointerDownData(pointer, -1, posX, posY);
 });
-
+setTimeout(function()
+{ 
 canvas.addEventListener('mousemove', function (e) {
-    setTimeout(function()
-    {  
+    
         let pointer = pointers[0];
         let posX = scaleByPixelRatio(e.offsetX);
         let posY = scaleByPixelRatio(e.offsetY);
         updatePointerMoveData(pointer, posX, posY);
-    }, 100);
+   
 });
-
+}, 1000);
 window.addEventListener('mouseup', function () {
     updatePointerUpData(pointers[0]);
 });
