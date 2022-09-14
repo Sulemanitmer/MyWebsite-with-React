@@ -25,12 +25,14 @@ export default function NavBarModal(props) {
     }
 
     const navbarSelection = (navbarItem) => (event) => {
-        setOpen(false);
         dispatch(updateAppNav(navbarItem));
-        closeNavbarModal();
+        setTimeout(function () {
+            closeNavbarModal();
+        }, 100);
     }
 
     const [open, setOpen] = useState(true)
+    const [textColor, setTextColor] = useState(navbarAppItem )
     return (
     <AnimatePresence>
         {open && (
@@ -80,6 +82,7 @@ export default function NavBarModal(props) {
                             <motion.div
                             initial={{
                                 x: -20,
+                                "--homeColor": textColor === 'home' ? '#4081c2': 'white',
                                 height: "0px"
                             }}
                             animate={{
@@ -92,6 +95,7 @@ export default function NavBarModal(props) {
                             exit={{
                                 x: -20,
                                 height: "0px",
+                                "--homeColor": textColor === 'home' ? '#4081c2': 'white',
                                 transition:{
                                     duration: 1.5
                                 }
@@ -101,16 +105,17 @@ export default function NavBarModal(props) {
                             >
                                 <Row style={{marginTop: "30px"}}>
                                     <Col>
-                                        <a style={{fontSize: "54px", color: navbarAppItem === 'home' ? '#4081c2': 'white'}} onClick={navbarSelection("home")}>AboutMe </a>
+                                        <a style={{fontSize: "54px", color: navbarAppItem === 'home' ? '#4081c2': 'var(--homeColor)'}} onClick={navbarSelection("home")}>AboutMe </a>
                                     </Col>
                                     <Col className='p-0 pt-2 mt-1'>
-                                        <a style={{fontSize: "12.5px", color: navbarAppItem === 'home' ? '#4081c2': 'white'}} onClick={navbarSelection("home")}>(Main)</a>
+                                        <a style={{fontSize: "12.5px", color: navbarAppItem === 'home' ? '#4081c2': 'var(--homeColor)'}} onClick={navbarSelection("home")}>(Main)</a>
                                     </Col>
                                 </Row>
                             </motion.div>
                             <motion.div
                             initial={{
                                 x: -20,
+                                "--projectsColor": textColor === 'projects' ? '#4081c2': 'white',
                                 height: "75px"
                             }}
                             animate={{
@@ -123,6 +128,7 @@ export default function NavBarModal(props) {
                             exit={{
                                 x: -20,
                                 height: "75px",
+                                "--projectsColor": textColor === 'projects' ? '#4081c2': 'white',
                                 transition:{
                                     duration: 1.5
                                 }
@@ -132,16 +138,17 @@ export default function NavBarModal(props) {
                             >
                             <Row style={{marginTop: "130px"}} >
                                 <Col>
-                                    <a style={{fontSize: "54px", color: navbarAppItem === 'projects' ? '#4081c2': 'white'}} onClick={navbarSelection("projects")}>Portfolio</a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'projects' ? '#4081c2': 'var(--projectsColor)'}} onClick={navbarSelection("projects")}>Portfolio</a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'projects' ? '#4081c2': 'white'}} onClick={navbarSelection("projects")}>(Achievement)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'projects' ? '#4081c2': 'var(--projectsColor)'}} onClick={navbarSelection("projects")}>(Achievement)</a>
                                 </Col>
                             </Row>
                             </motion.div>
                             <motion.div
                             initial={{
                                 x: -20,
+                                "--resumeColor": textColor === 'resume' ? '#4081c2': 'white',
                                 height: "175px"
                             }}
                             animate={{
@@ -154,6 +161,7 @@ export default function NavBarModal(props) {
                             exit={{
                                 x: -20,
                                 height: "175px",
+                                "--resumeColor": textColor === 'resume' ? '#4081c2': 'white',
                                 transition:{
                                     duration: 1.5
                                 }
@@ -163,16 +171,17 @@ export default function NavBarModal(props) {
                             >
                             <Row style={{marginTop: "230px"}}>
                                 <Col>
-                                    <a style={{fontSize: "54px", color: navbarAppItem === 'resume' ? '#4081c2': 'white'}} onClick={navbarSelection("resume")}>Services </a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'resume' ? '#4081c2': 'var(--resumeColor)'}} onClick={navbarSelection("resume")}>Services </a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'resume' ? '#4081c2': 'white'}} onClick={navbarSelection("resume")}>(Values)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'resume' ? '#4081c2': 'var(--resumeColor)'}} onClick={navbarSelection("resume")}>(Values)</a>
                                 </Col>
                             </Row>
                             </motion.div>
                             <motion.div
                             initial={{
                                 x: -20,
+                                "--contactColor": textColor === 'contact' ? '#4081c2': 'white',
                                 height: "275px"
                             }}
                             animate={{
@@ -185,6 +194,7 @@ export default function NavBarModal(props) {
                             exit={{
                                 x: -20,
                                 height: "275px",
+                                "--contactColor": textColor === 'contact' ? '#4081c2': 'white',
                                 transition:{
                                     duration: 1.5
                                 }
@@ -194,10 +204,10 @@ export default function NavBarModal(props) {
                             >
                             <Row style={{marginTop: "330px"}}>
                                 <Col>
-                                    <a style={{fontSize: "54px", color: navbarAppItem === 'contact' ? '#4081c2': 'white'}} onClick={navbarSelection("contact")}>Contacts </a>
+                                    <a style={{fontSize: "54px", color: navbarAppItem === 'contact' ? '#4081c2': 'var(--contactColor)'}} onClick={navbarSelection("contact")}>Contacts </a>
                                 </Col>
                                 <Col className='p-0 pt-2 mt-1'>
-                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'contact' ? '#4081c2': 'white'}} onClick={navbarSelection("contact")}>(Contact Me)</a>
+                                    <a style={{fontSize: "12.5px", color: navbarAppItem === 'contact' ? '#4081c2': 'var(--contactColor)'}} onClick={navbarSelection("contact")}>(Contact Me)</a>
                                 </Col>
                             </Row>
                             </motion.div>
