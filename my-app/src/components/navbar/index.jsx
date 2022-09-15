@@ -18,7 +18,7 @@ export default function NavBar() {
       setTimeout(function () {
           dispatch(setNavbarShowModal(true));
           setOpen(true);
-      }, 1000);
+      }, 750);
       
   }
     
@@ -51,7 +51,6 @@ export default function NavBar() {
                         }
                     }}
                     exit={{
-                        opacity: 0,
                         transform: 'rotate(180deg)',
                         transition:{
                             delay:0.5

@@ -1,20 +1,18 @@
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Container } from "react-bootstrap";
 import MyAchievements from "./myAchievements/index";
 import ProjectInProcess from "./projectInProcess/index";
 import ThreeLogo from "./HomePageLogo/index";
 
 const Landing = () => {
     return (
-    <>  <div>
-        landing
-    </div>
-        {/* <div className="text-pop-up text align-items-center text-center bg-transparent" style={{height:"10vh", display: "grid", zIndex: "100", position: "relative"}}>
+        <>
+                <div style={{height:"85vh", width: "100vw",  pointerEvents: "none" }}>
+                    <ThreeLogo/>
+                </div>
+                {/* <div className="text-pop-up text align-items-center text-center bg-transparent" style={{height:"10vh", display: "grid", zIndex: "100", position: "relative"}}>
             S0/0
         </div> */}
-        {/* <div style={{height:"100vh", width: "100vw",  pointerEvents: "none" }}>
-        
-        <ThreeLogo/>
-        </div> */}
+       
         {/* <Row>
             <Col sm={4}>
                 My picture
@@ -117,7 +115,8 @@ const Landing = () => {
                 </Button>
             </Col>
         </Row> */}
-    </>
+        </>
+        
     );
 }
 
