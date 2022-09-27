@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      
       <div>
         {appNav === "home" && <Landing/>}
         {appNav === "contact" && <Contact />}

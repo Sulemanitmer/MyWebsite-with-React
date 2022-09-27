@@ -2,13 +2,24 @@ import { Col, Row, Button, Container } from "react-bootstrap";
 import MyAchievements from "./myAchievements/index";
 import ProjectInProcess from "./projectInProcess/index";
 import ThreeLogo from "./HomePageLogo/index";
+import TextLogo from "./HomePageText/index";
+import Navbar from '../../navbar/index';
 
 const Landing = () => {
     return (
         <>
-                <div style={{height:"85vh", width: "100vw",  pointerEvents: "none" }}>
-                    <ThreeLogo/>
-                </div>
+        <div>
+            <Navbar/>
+            <div className="px-4"style={{height:"88vh", width: "100vw",  pointerEvents: "none", position: "absolute", zIndex: '3'}}>
+                <TextLogo/>
+            </div>
+        </div>
+       
+        <div style={{height:"88vh", width: "100vw",  pointerEvents: "none", overflow:"hidden" }}>
+            <div style={{height:"100vh", width: "100vw",  pointerEvents: "none", transform: "translate(0px, -4%)"}}>
+                <ThreeLogo/>
+            </div>
+        </div>
                 {/* <div className="text-pop-up text align-items-center text-center bg-transparent" style={{height:"10vh", display: "grid", zIndex: "100", position: "relative"}}>
             S0/0
         </div> */}

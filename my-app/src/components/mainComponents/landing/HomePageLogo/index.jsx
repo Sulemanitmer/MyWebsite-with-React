@@ -73,7 +73,7 @@ export default function App() {
         gl={{ powerPreference: 'high-performance', antialias: false, stencil: false, depth: false, alpha: true }}
         pixelRatio={window.pixelRatio}
         camera={{ position: [0, 0, 15], near: 5, far: 40 }}>
-        <a.fog attach="fog" args={['white', 0, 35]} color={color.to([0, 0.2, 0.4, 0.7, 1], ['white', '#4081c2', 'white', '#4081c2', 'white', ])} />
+        <a.fog attach="fog" args={['white', 0, 30]} color={color.to([0, 0.2, 0.4, 0.7, 1], ['white', '#4081c2', 'white', '#4081c2', 'white', ])} />
         <ambientLight intensity={0.8} />
         <directionalLight castShadow position={[2.5, 12, 12]} intensity={4} />
         <pointLight position={[20, 20, 20]} />

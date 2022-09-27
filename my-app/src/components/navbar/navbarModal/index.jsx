@@ -247,8 +247,8 @@ export default function NavBarModal(props) {
                                     <div>
                                         SulemanItmer@gmail.com
                                     </div>
-                                    <div>
-                                        Work Smart not hard
+                                    <div style={{color: '#4081c2'}}>
+                                        While(!(succeed=try()));
                                     </div>
                                 </Col>
                             </Row>

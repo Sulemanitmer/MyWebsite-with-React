@@ -27,7 +27,7 @@ export default function NavBar() {
     return (
       <>
         {navbarShowModalItem === true && <NavbarModal/>}
-         <Container className="p-3">
+         <Container className="px-2 pt-3 pb-1">
           <Row className="m-0">
             <Col className="p-3 m-0 my-auto fw-bold">
               <div style={{ position: 'relative', zIndex: '2', pointerEvents: 'none' }}>
