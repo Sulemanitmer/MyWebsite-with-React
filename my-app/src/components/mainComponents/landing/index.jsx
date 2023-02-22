@@ -16,7 +16,7 @@ const Landing = () => {
         </div>
        
         <div style={{height:"88vh", width: "100vw",  pointerEvents: "none", overflow:"hidden" }}>
-            <div style={{height:"100vh", width: "100vw",  pointerEvents: "none", transform: "translate(0px, -4%)"}}>
+            <div style={{height:"100vh", width: "100vw",  pointerEvents: "none", transform: "translate(0px, -2%)"}}>
                 <ThreeLogo/>
             </div>
         </div>
