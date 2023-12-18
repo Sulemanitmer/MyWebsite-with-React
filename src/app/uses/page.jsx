@@ -68,14 +68,14 @@ export default function Uses() {
             else relies on, Sublime Text is still the best text editor ever
             made.
           </Tool>
-          <Tool title="iTerm2">
-            I’m honestly not even sure what features I get with this that aren’t
-            just part of the macOS Terminal but it’s what I use.
+          <Tool title="Visual Studio Code">
+            I don't think I need to say anything about visual studio code. it’s
+            simply the best.
           </Tool>
-          <Tool title="TablePlus">
-            Great software for working with databases. Has saved me from
-            building about a thousand admin interfaces for my various projects
-            over the years.
+          <Tool title="FireBase">
+            Great software for creating backend. Has saved me from building
+            about a thousand lines of code for my various projects over the
+            years.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Design">

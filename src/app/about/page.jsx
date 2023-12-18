@@ -39,7 +39,7 @@ function MailIcon(props) {
 export const metadata = {
   title: 'About',
   description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+    'I’m Suleman Itmer. I live in Dallas, where I design the future.',
 }
 
 export default function About() {
@@ -58,8 +58,7 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
+            I’m Suleman Itmer. I live in Dallas, where I design the future.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
@@ -83,33 +82,46 @@ export default function About() {
               photo back down to our family computer from space.
             </p>
             <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              Today, I’m the founder of Digitize Block, where we’re commitment
+              to innovation and technology, we are bridging the realms of
+              software services and digitize space exploration, ensuring that
+              the spirit of curiosity and discovery continues to thrive in the
+              hearts of aspiring young astronauts.
             </p>
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={TwitterIcon}>
+            {/* <SocialLink href="#" icon={TwitterIcon}>
               Follow on Twitter
-            </SocialLink>
-            <SocialLink href="#" icon={InstagramIcon} className="mt-4">
+            </SocialLink> */}
+            <SocialLink
+              href="https://www.instagram.com/Sulemanitmer"
+              icon={InstagramIcon}
+              className="mt-4"
+            >
               Follow on Instagram
             </SocialLink>
-            <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+            <SocialLink
+              href="https://github.com/Sulemanitmer"
+              icon={GitHubIcon}
+              className="mt-4"
+            >
               Follow on GitHub
             </SocialLink>
-            <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+            <SocialLink
+              href="https://www.linkedin.com/in/sulemanitmer/"
+              icon={LinkedInIcon}
+              className="mt-4"
+            >
               Follow on LinkedIn
             </SocialLink>
             <SocialLink
-              href="mailto:spencer@planetaria.tech"
+              href="mailto:sulemanitmer@gmail.com"
               icon={MailIcon}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
-              spencer@planetaria.tech
+              sulemanitmer@gmail.com
             </SocialLink>
           </ul>
         </div>

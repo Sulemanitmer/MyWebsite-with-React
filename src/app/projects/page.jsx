@@ -13,21 +13,24 @@ const projects = [
     name: 'Planetaria',
     description:
       'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+    link: { href: 'http://sulemanitmer.com', label: 'sulemanitmer.com' },
     logo: logoPlanetaria,
   },
   {
     name: 'Animaginary',
     description:
       'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: 'http://digitizeblock.com', label: 'digitizeblock.com' },
     logo: logoAnimaginary,
   },
   {
     name: 'HelioStream',
     description:
       'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
+    link: {
+      href: 'https://github.com/Sulemanitmer/GPU-Bot',
+      label: 'github.com',
+    },
     logo: logoHelioStream,
   },
   {
