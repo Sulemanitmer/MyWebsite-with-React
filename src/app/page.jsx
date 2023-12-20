@@ -268,10 +268,16 @@ export default async function Home() {
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          <h1
+            className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+            style={{ position: 'relative', zIndex: 1 }}
+          >
             Software designer, founder, and amateur astronaut.
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p
+            className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+            style={{ position: 'relative', zIndex: 1 }}
+          >
             I’m Suleman, a software designer and entrepreneur based in Texas.
             I’m the founder and CEO of Digitize Block, where we develop software
             that empower regular people to explore digital space on their own
@@ -287,34 +293,47 @@ export default async function Home() {
               href="https://instagram.com/Sulemanitmer"
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
+              style={{
+                zIndex: 1,
+              }}
             />
             <SocialLink
               href="https://github.com/Sulemanitmer"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
+              style={{
+                zIndex: 1,
+              }}
             />
             <SocialLink
               href="https://www.linkedin.com/in/sulemanitmer/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
+              style={{
+                zIndex: 1,
+              }}
             />
           </div>
         </div>
       </Container>
-      <div className="fluid-background">
-        <Fluid />
-      </div>
+      <Fluid />
       <Photos />
-      <Container className="mt-24 md:mt-28">
+      <Container className="mt-24 md:mt-28" style={{ pointerEvents: 'none' }}>
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <div style={{ pointerEvents: 'auto' }}>
+                <Article key={article.slug} article={article} />
+              </div>
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
-            <Resume />
+            <div style={{ pointerEvents: 'auto' }}>
+              <Newsletter />
+            </div>
+            <div style={{ pointerEvents: 'auto' }}>
+              <Resume />
+            </div>
           </div>
         </div>
       </Container>

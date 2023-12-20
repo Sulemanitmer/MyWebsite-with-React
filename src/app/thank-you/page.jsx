@@ -1,5 +1,7 @@
 import { SimpleLayout } from '@/components/SimpleLayout'
 
+import Fluid from '../fluid'
+
 export const metadata = {
   title: 'You’re subscribed',
   description: 'Thanks for subscribing to my newsletter.',

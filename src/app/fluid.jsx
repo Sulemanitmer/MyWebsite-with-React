@@ -1,22 +1,26 @@
 // pages/fluid.jsx
 'use client'
 import { useEffect, useRef } from 'react'
-import webGLFluidEnhanced from 'webgl-fluid-enhanced'
+import Fluid from 'webgl-fluid'
 
-const Fluid = () => {
+const Fluidcavnce = () => {
   const canvasRef = useRef(null)
-
   useEffect(() => {
     const canvas = canvasRef.current
 
     if (canvas) {
-      webGLFluidEnhanced.simulation(canvas, {
-        PRESSURE: 0.2,
-        SUNRAYS: false,
-        START_SPLATS: 10,
-        DENSITY_DISSIPATION: 3,
-        CURL: 100,
-        COLOR_PALETTE: ['#0000ff', '#111111', '#1d1d1d', '#eaeaea', '#4dba87'],
+      Fluid(canvas, {
+        PRESSURE: 1,
+        SUNRAYS: true,
+        PRESSURE_ITERATIONS: 20,
+        START_SPLATS: 20,
+        DENSITY_DISSIPATION: 2,
+        CURL: 0,
+        VELOCITY_DISSIPATION: 0,
+        SPLAT_RADIUS: 0.2,
+        BLOOM: false,
+        SUNRAYS_WEIGHT: 1,
+        TRANSPARENT: true,
       })
     }
   }, [])
@@ -25,9 +29,14 @@ const Fluid = () => {
     <canvas
       ref={canvasRef}
       className="h-screen w-screen"
-      style={{ position: 'fixed', zIndex: -1, top: 0, left: 0 }}
+      style={{
+        position: 'fixed',
+        zIndex: 0,
+        top: 0,
+        left: 0,
+      }}
     />
   )
 }
 
-export default Fluid
+export default Fluidcavnce
