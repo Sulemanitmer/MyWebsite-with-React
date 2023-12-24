@@ -325,8 +325,8 @@ export default async function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <div style={{ pointerEvents: 'auto' }}>
-                <Article key={article.slug} article={article} />
+              <div style={{ pointerEvents: 'auto' }} key={article.slug}>
+                <Article article={article} />
               </div>
             ))}
           </div>

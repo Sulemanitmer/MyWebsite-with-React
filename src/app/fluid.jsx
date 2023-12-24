@@ -5,7 +5,6 @@ import Fluid from 'webgl-fluid'
 
 const FluidLauncher = () => {
   const canvasRef = useRef(null)
-
   useEffect(() => {
     const canvas = canvasRef.current
 
@@ -36,13 +35,14 @@ const FluidLauncher = () => {
       }
 
       const handleTouchMove = (e) => {
-        if (isDragging) {
-          const deltaX = e.touches[0].clientX - startX
-          const deltaY = e.touches[0].clientY - startY
-          window.scrollBy(-deltaX, -deltaY)
-          startX = e.touches[0].clientX
-          startY = e.touches[0].clientY
-          e.preventDefault()
+        if (typeof window !== 'undefined' && window.scrollBy) {
+          if (isDragging) {
+            const deltaX = e.touches[0].clientX - startX
+            const deltaY = e.touches[0].clientY - startY
+            window.scrollBy(-deltaX, -deltaY)
+            startX = e.touches[0].clientX
+            startY = e.touches[0].clientY
+          }
         }
       }
 
@@ -51,7 +51,7 @@ const FluidLauncher = () => {
       }
 
       canvas.addEventListener('touchstart', handleTouchStart, { passive: true })
-      canvas.addEventListener('touchmove', handleTouchMove, { passive: true }) // Mark as 'passive'
+      canvas.addEventListener('touchmove', handleTouchMove, { passive: true })
       canvas.addEventListener('touchend', handleTouchEnd, { passive: true })
     }
   }, [])

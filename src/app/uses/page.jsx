@@ -74,7 +74,7 @@ export default function Uses() {
                 editor ever made.
               </Tool>
               <Tool title="Visual Studio Code">
-                I don't think I need to say anything about visual studio code.
+                I don’t think I need to say anything about visual studio code.
                 it’s simply the best.
               </Tool>
               <Tool title="FireBase">
