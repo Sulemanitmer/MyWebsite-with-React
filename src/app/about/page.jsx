@@ -48,7 +48,7 @@ export default function About() {
   return (
     <>
       <Fluid />
-      <Container className="mt-16 sm:mt-32">
+      <Container className="mt-16 sm:mt-32" style={{ pointerEvents: 'none' }}>
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
@@ -61,31 +61,34 @@ export default function About() {
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h1
+              className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+              style={{ position: 'relative', zIndex: 1 }}
+            >
               I’m Suleman Itmer. I live in Dallas, where I design the future.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>
+              <p style={{ position: 'relative', zIndex: 1 }}>
                 I’ve loved making things for as long as I can remember, and
                 wrote my first program when I was 6 years old, just two weeks
                 after my mom brought home the brand new Macintosh LC 550 that I
                 taught myself to type on.
               </p>
-              <p>
+              <p style={{ position: 'relative', zIndex: 1 }}>
                 The only thing I loved more than computers as a kid was space.
                 When I was 8, I climbed the 40-foot oak tree at the back of our
                 yard while wearing my older sister’s motorcycle helmet, counted
                 down from three, and jumped — hoping the tree was tall enough
                 that with just a bit of momentum I’d be able to get to orbit.
               </p>
-              <p>
+              <p style={{ position: 'relative', zIndex: 1 }}>
                 I spent the next few summers indoors working on a rocket design,
                 while I recovered from the multiple surgeries it took to fix my
                 badly broken legs. It took nine iterations, but when I was 15 I
                 sent my dad’s Blackberry into orbit and was able to transmit a
                 photo back down to our family computer from space.
               </p>
-              <p>
+              <p style={{ position: 'relative', zIndex: 1 }}>
                 Today, I’m the founder of Digitize Block, where we’re commitment
                 to innovation and technology, we are bridging the realms of
                 software services and digitize space exploration, ensuring that
@@ -99,34 +102,49 @@ export default function About() {
               {/* <SocialLink href="#" icon={TwitterIcon}>
               Follow on Twitter
             </SocialLink> */}
-              <SocialLink
-                href="https://www.instagram.com/Sulemanitmer"
-                icon={InstagramIcon}
-                className="mt-4"
-              >
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink
-                href="https://github.com/Sulemanitmer"
-                icon={GitHubIcon}
-                className="mt-4"
-              >
-                Follow on GitHub
-              </SocialLink>
-              <SocialLink
-                href="https://www.linkedin.com/in/sulemanitmer/"
-                icon={LinkedInIcon}
-                className="mt-4"
-              >
-                Follow on LinkedIn
-              </SocialLink>
-              <SocialLink
-                href="mailto:sulemanitmer@gmail.com"
-                icon={MailIcon}
-                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-              >
-                sulemanitmer@gmail.com
-              </SocialLink>
+              <div style={{ pointerEvents: 'auto' }}>
+                <SocialLink
+                  href="https://www.instagram.com/Sulemanitmer"
+                  icon={InstagramIcon}
+                  className="mt-4"
+                  style={{ position: 'relative', zIndex: 2 }}
+                >
+                  Follow on Instagram
+                </SocialLink>
+              </div>
+              <div style={{ pointerEvents: 'auto' }}>
+                <SocialLink
+                  href="https://github.com/Sulemanitmer"
+                  icon={GitHubIcon}
+                  className="mt-4"
+                  style={{
+                    position: 'relative',
+                    zIndex: 2,
+                  }}
+                >
+                  Follow on GitHub
+                </SocialLink>
+              </div>
+              <div style={{ pointerEvents: 'auto' }}>
+                <SocialLink
+                  href="https://www.linkedin.com/in/sulemanitmer/"
+                  icon={LinkedInIcon}
+                  className="mt-4"
+                  style={{ position: 'relative', zIndex: 2 }}
+                >
+                  Follow on LinkedIn
+                </SocialLink>
+              </div>
+              <div style={{ pointerEvents: 'auto' }}>
+                <SocialLink
+                  href="mailto:sulemanitmer@gmail.com"
+                  icon={MailIcon}
+                  className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+                  style={{ position: 'relative', zIndex: 2 }}
+                >
+                  sulemanitmer@gmail.com
+                </SocialLink>
+              </div>
             </ul>
           </div>
         </div>

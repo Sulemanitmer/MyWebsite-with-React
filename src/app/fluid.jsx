@@ -3,8 +3,9 @@
 import { useEffect, useRef } from 'react'
 import Fluid from 'webgl-fluid'
 
-const Fluidcavnce = () => {
+const FluidLauncher = () => {
   const canvasRef = useRef(null)
+
   useEffect(() => {
     const canvas = canvasRef.current
 
@@ -22,21 +23,54 @@ const Fluidcavnce = () => {
         SUNRAYS_WEIGHT: 1,
         TRANSPARENT: true,
       })
+
+      // Add touch event listeners for touch dragging
+      let isDragging = false
+      let startX = 0
+      let startY = 0
+
+      const handleTouchStart = (e) => {
+        isDragging = true
+        startX = e.touches[0].clientX
+        startY = e.touches[0].clientY
+      }
+
+      const handleTouchMove = (e) => {
+        if (isDragging) {
+          const deltaX = e.touches[0].clientX - startX
+          const deltaY = e.touches[0].clientY - startY
+          window.scrollBy(-deltaX, -deltaY)
+          startX = e.touches[0].clientX
+          startY = e.touches[0].clientY
+          e.preventDefault()
+        }
+      }
+
+      const handleTouchEnd = () => {
+        isDragging = false
+      }
+
+      canvas.addEventListener('touchstart', handleTouchStart, { passive: true })
+      canvas.addEventListener('touchmove', handleTouchMove, { passive: true }) // Mark as 'passive'
+      canvas.addEventListener('touchend', handleTouchEnd, { passive: true })
     }
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="h-screen w-screen"
-      style={{
-        position: 'fixed',
-        zIndex: 0,
-        top: 0,
-        left: 0,
-      }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'fixed',
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
+          top: 0,
+          left: 0,
+        }}
+      />
+    </>
   )
 }
 
-export default Fluidcavnce
+export default FluidLauncher

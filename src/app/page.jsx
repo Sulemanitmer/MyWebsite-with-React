@@ -122,7 +122,7 @@ function Newsletter() {
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         Get notified when I publish something new, and unsubscribe at any time.
       </p>
-      <div className="mt-6 flex">
+      <div className="mt-6 flex" style={{ pointerEvents: 'auto' }}>
         <input
           type="email"
           placeholder="Email address"
@@ -221,15 +221,18 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button
-        href="/suleman_itmer_resume.pdf"
-        target="_blank"
-        variant="secondary"
-        className="group mt-6 w-full"
-      >
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
+
+      <div style={{ pointerEvents: 'auto' }}>
+        <Button
+          href="/suleman_itmer_resume.pdf"
+          target="_blank"
+          variant="secondary"
+          className="group mt-6 w-full"
+        >
+          Download CV
+          <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+        </Button>
+      </div>
     </div>
   )
 }
@@ -266,7 +269,7 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-9">
+      <Container className="mt-9" style={{ pointerEvents: 'none' }}>
         <div className="max-w-2xl">
           <h1
             className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
@@ -283,36 +286,36 @@ export default async function Home() {
             that empower regular people to explore digital space on their own
             terms.
           </p>
-          <div className="mt-6 flex gap-6">
+          <div className="flex gap-6">
             {/* <SocialLink
               href="https://twitter.com"
               aria-label="Follow on Twitter"
               icon={TwitterIcon}
             /> */}
-            <SocialLink
-              href="https://instagram.com/Sulemanitmer"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-              style={{
-                zIndex: 1,
-              }}
-            />
-            <SocialLink
-              href="https://github.com/Sulemanitmer"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-              style={{
-                zIndex: 1,
-              }}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/sulemanitmer/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-              style={{
-                zIndex: 1,
-              }}
-            />
+            <div style={{ pointerEvents: 'auto' }}>
+              <SocialLink
+                href="https://instagram.com/Sulemanitmer"
+                aria-label="Follow on Instagram"
+                icon={InstagramIcon}
+                style={{ position: 'relative', zIndex: 2 }}
+              />
+            </div>
+            <div style={{ pointerEvents: 'auto' }}>
+              <SocialLink
+                href="https://github.com/Sulemanitmer"
+                aria-label="Follow on GitHub"
+                icon={GitHubIcon}
+                style={{ position: 'relative', zIndex: 2 }}
+              />
+            </div>
+            <div style={{ pointerEvents: 'auto' }}>
+              <SocialLink
+                href="https://www.linkedin.com/in/sulemanitmer/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
+                style={{ position: 'relative', zIndex: 2 }}
+              />
+            </div>
           </div>
         </div>
       </Container>
@@ -328,12 +331,8 @@ export default async function Home() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <div style={{ pointerEvents: 'auto' }}>
-              <Newsletter />
-            </div>
-            <div style={{ pointerEvents: 'auto' }}>
-              <Resume />
-            </div>
+            <Newsletter />
+            <Resume />
           </div>
         </div>
       </Container>
