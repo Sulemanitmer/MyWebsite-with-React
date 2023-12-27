@@ -11,8 +11,6 @@ import {
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
-import Fluid from '../fluid'
-
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
     <li className={clsx(className, 'flex')}>
@@ -47,7 +45,6 @@ export const metadata = {
 export default function About() {
   return (
     <>
-      <Fluid />
       <Container className="mt-16 sm:mt-32" style={{ pointerEvents: 'none' }}>
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">

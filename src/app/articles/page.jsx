@@ -3,8 +3,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
-import Fluid from '../fluid'
-
 function Article({ article }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
@@ -45,8 +43,6 @@ export default async function ArticlesIndex() {
 
   return (
     <>
-      <Fluid />
-
       <div style={{ pointerEvents: 'none' }}>
         <SimpleLayout
           title="Writing on software design, company building, and the digitial industry."

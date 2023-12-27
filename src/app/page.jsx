@@ -25,8 +25,6 @@ import image5 from '@/images/photos/image-5.jpg'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
-import Fluid from './fluid'
-
 function MailIcon(props) {
   return (
     <svg
@@ -319,7 +317,6 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-      <Fluid />
       <Photos />
       <Container className="mt-24 md:mt-28" style={{ pointerEvents: 'none' }}>
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">

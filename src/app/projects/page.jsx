@@ -7,8 +7,6 @@ import logoBot from '@/images/logos/gpuBot.png'
 import logoMyFirstApp from '@/images/logos/myFirstApp.png'
 import logoMyWebsite from '@/images/logos/MyWebsite.png'
 
-import Fluid from '../fluid'
-
 const projects = [
   {
     name: 'My Website',
@@ -63,7 +61,6 @@ export const metadata = {
 export default function Projects() {
   return (
     <>
-      <Fluid />
       <div style={{ pointerEvents: 'none' }}>
         <SimpleLayout
           title="Things I’ve made trying to put my dent in the universe."

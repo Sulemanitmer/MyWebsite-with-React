@@ -2,8 +2,6 @@ import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
-import Fluid from '../fluid'
-
 function ToolsSection({ children, ...props }) {
   return (
     <Section {...props}>
@@ -33,7 +31,6 @@ export const metadata = {
 export default function Uses() {
   return (
     <>
-      <Fluid />
       <div style={{ pointerEvents: 'none' }}>
         <SimpleLayout
           title="Software I use, gadgets I love, and other things I recommend."

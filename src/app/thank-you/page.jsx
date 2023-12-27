@@ -1,6 +1,6 @@
 import { SimpleLayout } from '@/components/SimpleLayout'
 
-import Fluid from '../fluid'
+import FluidLauncher from '@/components/FluidLauncher'
 
 export const metadata = {
   title: 'You’re subscribed',
@@ -10,7 +10,7 @@ export const metadata = {
 export default function ThankYou() {
   return (
     <>
-      <Fluid />
+      <FluidLauncher />
       <div style={{ pointerEvents: 'none' }}>
         <SimpleLayout
           title="Thanks for subscribing."
